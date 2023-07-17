@@ -6,6 +6,7 @@ import Sidebar from '../../components/sidebar/Sidebar'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useLocation } from 'react-router-dom'
+import { BASE_URL } from '../../constants'
 
 export default function Home() {
     const [posts, setPosts] = useState([]);
@@ -13,7 +14,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const res = await axios.get("https://rts-blog-app-2.onrender.com/api/posts" + search);
+            const res = await axios.get(`${BASE_URL}/api/posts` + search);
             setPosts(res.data);
         };
         fetchPosts();
