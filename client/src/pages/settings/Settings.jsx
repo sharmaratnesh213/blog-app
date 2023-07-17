@@ -31,7 +31,6 @@ export default function Settings() {
             try {
                 await axios.post("/upload", data);
             } catch (err) {
-
             }
         }
         try {
