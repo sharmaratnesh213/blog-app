@@ -7,7 +7,7 @@ import { BASE_URL } from '../../constants';
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const PF = "https://blog-app-puce-six.vercel.app/images/";
+    const PF = "https://rts-blog-app-2.onrender.com/images/";
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");

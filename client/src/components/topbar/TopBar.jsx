@@ -5,7 +5,7 @@ import { Context } from "../../context/Context";
 
 export default function TopBar() {
     const { user, dispatch } = useContext(Context);
-    const PF = "https://blog-app-puce-six.vercel.app/images/";
+    const PF = "https://rts-blog-app-2.onrender.com/images/";
 
     const handleLogout = () => {
         dispatch({ type: "LOGOUT" })

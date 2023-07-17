@@ -3,7 +3,7 @@ import "./post.css"
 import { Link } from "react-router-dom"
 
 export default function Post({ post }) {
-    const PF = "https://blog-app-puce-six.vercel.app/images/";
+    const PF = "https://rts-blog-app-2.onrender.com/images/";
     return (
         <div className='post'>
             {post.photo && (
@@ -13,6 +13,7 @@ export default function Post({ post }) {
                     alt=""
                 />
             )}
+            {console.log(PF + post.photo)}
 
             <div className="postInfo">
                 <div className="postCats">

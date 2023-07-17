@@ -9,7 +9,7 @@ export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({});
-    const PF = "https://blog-app-puce-six.vercel.app/images/";
+    const PF = "https://rts-blog-app-2.onrender.com/images/";
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
