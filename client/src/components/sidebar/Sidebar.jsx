@@ -31,7 +31,7 @@ export default function Sidebar() {
 
                 </p>
             </div>
-            <div className="sidebarItem">
+            {/* <div className="sidebarItem">
                 <span className="sidebarTitle">
                     CATEGORIES
                 </span>
@@ -42,7 +42,7 @@ export default function Sidebar() {
                         </Link>
                     ))}
                 </ul>
-            </div>
+            </div> */}
             <div className="sidebarItem">
                 <span className="sidebarTitle">
                     FOLLOW US
