@@ -13,7 +13,6 @@ export default function Post({ post }) {
                     alt=""
                 />
             )}
-            {console.log(PF + post.photo)}
 
             <div className="postInfo">
                 <div className="postCats">
