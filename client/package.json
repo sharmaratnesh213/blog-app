@@ -1,7 +1,7 @@
 {
   "name": "react-blog-app",
   "version": "0.1.0",
-  "proxy" : "https://rts-blog-app-2.onrender.com",
+  "proxy" : "https://rts-blog-app-2.onrender.com/api",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
