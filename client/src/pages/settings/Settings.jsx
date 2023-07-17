@@ -7,7 +7,7 @@ import { BASE_URL } from '../../constants';
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const PF = "http://localhost:5000/images/";
+    const PF = "https://blog-app-puce-six.vercel.app/images/";
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
