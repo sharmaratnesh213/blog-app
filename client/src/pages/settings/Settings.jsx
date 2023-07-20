@@ -7,7 +7,7 @@ import { BASE_URL } from '../../constants';
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const PF = "https://88e0-4-240-87-123.ngrok-free.app/images/";
+    const PF = `${BASE_URL}/images/`;
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -30,12 +30,12 @@ export default function Settings() {
             data.append("file", file);
             updatedUser.profilePic = filename;
             try {
-                await axios.post(`${BASE_URL}/upload`, data);
+                await axios.post(`${BASE_URL}/api/upload`, data);
             } catch (err) {
             }
         }
         try {
-            const res = await axios.put(`${BASE_URL}/users/` + user._id, updatedUser);
+            const res = await axios.put(`${BASE_URL}/api/users/` + user._id, updatedUser);
             setSuccess(true);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
         } catch (err) {

@@ -9,7 +9,7 @@ export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({});
-    const PF = "https://88e0-4-240-87-123.ngrok-free.app/images/";
+    const PF = `${BASE_URL}images/`;
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
@@ -17,7 +17,7 @@ export default function SinglePost() {
 
     useEffect(() => {
         const getPost = async () => {
-            const res = await axios.get(`${BASE_URL}/posts/${path}`);
+            const res = await axios.get(`${BASE_URL}/api/posts/${path}`);
             setPost(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
@@ -27,7 +27,7 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`${BASE_URL}/posts/${post._id}`, {
+            await axios.delete(`${BASE_URL}/api/posts/${post._id}`, {
                 data: { username: user.username },
             });
             window.location.replace("/");
@@ -38,7 +38,7 @@ export default function SinglePost() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`${BASE_URL}/posts/${post._id}`, {
+            await axios.put(`${BASE_URL}/api/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc,
