@@ -1,1 +1,1 @@
-export const BASE_URL = "https://rts-blog-app-2.onrender.com/api" 
+export const BASE_URL = "https://88e0-4-240-87-123.ngrok-free.app/api" 
