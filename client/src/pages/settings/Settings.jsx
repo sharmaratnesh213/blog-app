@@ -7,7 +7,7 @@ import { BASE_URL } from '../../constants';
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const PF = "https://rts-blog-app-2.onrender.com/images/";
+    const PF = "https://88e0-4-240-87-123.ngrok-free.app/images/";
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");

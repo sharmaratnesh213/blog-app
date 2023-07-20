@@ -3,7 +3,7 @@ import "./post.css"
 import { Link } from "react-router-dom"
 
 export default function Post({ post }) {
-    const PF = "https://rts-blog-app-2.onrender.com/images/";
+    const PF = "https://88e0-4-240-87-123.ngrok-free.app/images/";
     return (
         <div className='post'>
             {post.photo && (

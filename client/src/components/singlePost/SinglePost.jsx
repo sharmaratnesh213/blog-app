@@ -9,7 +9,7 @@ export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({});
-    const PF = "https://rts-blog-app-2.onrender.com/images/";
+    const PF = "https://88e0-4-240-87-123.ngrok-free.app/images/";
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
