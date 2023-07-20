@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
-const cors = require("cors")
+const cors = require("cors");
 const mongoose = require("mongoose");
 const authRoute = require("./routes/auth");
 const userRoute = require("./routes/users");
@@ -11,9 +11,15 @@ const multer = require("multer");
 const path = require("path");
 
 dotenv.config();
+
+const corsOptions = {
+    origin: 'https://blog-app-puce-six.vercel.app'
+};
+
+app.use(cors(corsOptions));
+
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
-app.use(cors())
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
