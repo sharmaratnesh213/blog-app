@@ -4,25 +4,22 @@ import Header from '../../components/header/Header'
 import Posts from '../../components/posts/Posts'
 import Sidebar from '../../components/sidebar/Sidebar'
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { useLocation } from 'react-router-dom'
-import { BASE_URL } from '../../constants'
+import { axiosInstance } from '../../constants'
 
 export default function Home() {
     const [posts, setPosts] = useState([]);
     const { search } = useLocation();
 
     useEffect(() => {
-        const fetchPosts = () => {
-            axios.get(`${BASE_URL}/api/posts` + search)
-                .then((res) => {
-                    console.log(res);
-                    setPosts(res.data);
-                }).catch((err) => {
-                    console.log(err)
-                    alert("Something went wrong!");
-                });
-
+        const fetchPosts = async () => {
+            const options = {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+            const res = await axiosInstance.get(`/posts` + search, options);
+            setPosts(res.data);
         };
         fetchPosts();
     }, [search]);

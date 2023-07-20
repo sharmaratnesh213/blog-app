@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import "./sidebar.css"
-import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { BASE_URL } from '../../constants';
+import { axiosInstance } from '../../constants';
 
 export default function Sidebar() {
     const [cats, setCats] = useState([]);
 
     useEffect(() => {
         const getCats = async () => {
-            const res = await axios.get(`${BASE_URL}/api/categories`);
+            const options = {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+            const res = await axiosInstance.get(`/categories`, options);
             setCats(res.data);
+            console.log(cats);
         };
         getCats();
-    }, []);
+    }, [cats]);
     return (
         <div className='sidebar'>
             <div className="sidebarItem">
@@ -31,7 +36,7 @@ export default function Sidebar() {
 
                 </p>
             </div>
-            {/* <div className="sidebarItem">
+            <div className="sidebarItem">
                 <span className="sidebarTitle">
                     CATEGORIES
                 </span>
@@ -42,7 +47,7 @@ export default function Sidebar() {
                         </Link>
                     ))}
                 </ul>
-            </div> */}
+            </div>
             <div className="sidebarItem">
                 <span className="sidebarTitle">
                     FOLLOW US

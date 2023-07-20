@@ -1,15 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import "./singlePost.css"
 import { Link, useLocation } from 'react-router-dom'
-import axios from 'axios';
 import { Context } from '../../context/Context';
-import { BASE_URL } from '../../constants';
+import { axiosInstance } from '../../constants';
 
 export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({});
-    const PF = `${BASE_URL}images/`;
+    const PF = `https://4e3a-4-240-87-123.ngrok-free.app/images/`;
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
@@ -17,7 +16,12 @@ export default function SinglePost() {
 
     useEffect(() => {
         const getPost = async () => {
-            const res = await axios.get(`${BASE_URL}/api/posts/${path}`);
+            const options = {
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            };
+            const res = await axiosInstance.get(`posts/${path}`, options);
             setPost(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
@@ -27,7 +31,7 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axios.delete(`${BASE_URL}/api/posts/${post._id}`, {
+            await axiosInstance.delete(`posts/${post._id}`, {
                 data: { username: user.username },
             });
             window.location.replace("/");
@@ -38,7 +42,7 @@ export default function SinglePost() {
 
     const handleUpdate = async () => {
         try {
-            await axios.put(`${BASE_URL}/api/posts/${post._id}`, {
+            await axiosInstance.put(`posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc,

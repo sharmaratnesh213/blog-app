@@ -2,12 +2,11 @@ import React, { useContext, useState } from 'react'
 import "./settings.css"
 import Sidebar from "../../components/sidebar/Sidebar"
 import { Context } from '../../context/Context'
-import axios from 'axios';
-import { BASE_URL } from '../../constants';
+import { axiosInstance } from '../../constants';
 
 export default function Settings() {
     const { user, dispatch } = useContext(Context);
-    const PF = `${BASE_URL}/images/`;
+    const PF = `https://4e3a-4-240-87-123.ngrok-free.app/images/`;
     const [file, setFile] = useState(null);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
@@ -30,12 +29,12 @@ export default function Settings() {
             data.append("file", file);
             updatedUser.profilePic = filename;
             try {
-                await axios.post(`${BASE_URL}/api/upload`, data);
+                await axiosInstance.post(`upload`, data);
             } catch (err) {
             }
         }
         try {
-            const res = await axios.put(`${BASE_URL}/api/users/` + user._id, updatedUser);
+            const res = await axiosInstance.put(`users/` + user._id, updatedUser);
             setSuccess(true);
             dispatch({ type: "UPDATE_SUCCESS", payload: res.data });
         } catch (err) {
