@@ -13,8 +13,8 @@ export default function Home() {
     const { search } = useLocation();
 
     useEffect(() => {
-        const fetchPosts = async () => {
-            await axios.get(`${BASE_URL}/posts` + search)
+        const fetchPosts = () => {
+            axios.get(`${BASE_URL}/posts` + search)
                 .then((res) => {
                     console.log(res);
                     setPosts(res.data);
