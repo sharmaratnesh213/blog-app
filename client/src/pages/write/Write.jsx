@@ -7,15 +7,19 @@ export default function Write() {
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
     const [file, setFile] = useState(null);
+    const [categories, setCategories] = useState("");
     const { user } = useContext(Context);
 
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         const newPost = {
             username: user.username,
             title,
             desc,
+            categories,
         };
+
         if (file) {
             const data = new FormData();
             const filename = Date.now() + file.name;
@@ -23,16 +27,17 @@ export default function Write() {
             data.append("file", file);
             newPost.photo = filename;
             try {
-                await axiosInstance.post(`upload`, data);
+                await axiosInstance.post("api/upload", data);
             } catch (err) {
-
+                console.error("Error uploading the file:", err);
             }
         }
+
         try {
-            const res = await axiosInstance.post(`api/posts`, newPost);
+            const res = await axiosInstance.post("api/posts", newPost);
             window.location.replace("/post/" + res.data._id);
         } catch (err) {
-
+            console.error("Error creating the post:", err);
         }
     }
     return (
@@ -63,6 +68,22 @@ export default function Write() {
                         autoFocus={true}
                         onChange={e => setTitle(e.target.value)}
                     />
+                </div>
+                <div className="writeFormGroup">
+                    <select
+                        className="writeCat"
+                        value={categories}
+                        onChange={(e) => setCategories(e.target.value)}
+                    >
+                        <option value="">Select Category</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="Music">Music</option>
+                        <option value="Health">Health</option>
+                        <option value="Education">Education</option>
+                        {/* Add more categories as needed */}
+                    </select>
                 </div>
                 <div className="writeFormGroup">
                     <textarea

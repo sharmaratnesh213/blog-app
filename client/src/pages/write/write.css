@@ -44,9 +44,15 @@
     outline: none;
 }
 
+.writeCat{
+    font-size: 20px;
+    width: 200px;
+}
+
 .writeText{
     font-size: 20px;
     height: 100vh;
+    white-space: pre-wrap;
 }
 
 .writeSubmit{

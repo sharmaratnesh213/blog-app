@@ -8,12 +8,11 @@ export default function Sidebar() {
 
     useEffect(() => {
         const getCats = async () => {
-            const res = await axiosInstance.get(`api/categories`);
+            const res = await axiosInstance.get("api/categories");
             setCats(res.data);
-            console.log(cats);
         };
         getCats();
-    }, [cats]);
+    }, []);
     return (
         <div className='sidebar'>
             <div className="sidebarItem">
@@ -21,14 +20,13 @@ export default function Sidebar() {
                     ABOUT ME
                 </span>
                 <img
-                    src="https://i.pinimg.com/736x/22/34/75/223475746873783616e2ec5c6e7badbc.jpg"
+                    src="https://drive.google.com/uc?export=download&id=1Yuk6vk3dtkGKFbyITiowil9Udd2PAoR4"
                     alt=""
                 />
                 <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Neque, sint. Quas similique inventore aliquam
-                    expedita magni optio ipsum fuga? Doloribus tempora
-
+                    I am Ratnesh Kumar, a B.Tech undergrad from NIT Agartala. I am a full-stack developer.
+                    This app will let you share your ideas with the world. So, join our community to get started
+                    with this journey. Do register with the app and login to meet people around you and the entire globe.
                 </p>
             </div>
             <div className="sidebarItem">
@@ -36,7 +34,7 @@ export default function Sidebar() {
                     CATEGORIES
                 </span>
                 <ul className="sidebarList">
-                    {cats?.length && cats.map(c => (
+                    {cats.map(c => (
                         <Link key={c._id} to={`/?cat=${c.name}`} className="link">
                             <li className="sidebarListItem">{c.name}</li>
                         </Link>
