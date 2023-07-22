@@ -1,6 +1,6 @@
 import React from "react"
 import "./header.css"
-import Slider from 'infinite-react-carousel/lib'
+import Slider from '../../infinite-react-carousel'
 export default function Header() {
     return (
         <div className="header">
