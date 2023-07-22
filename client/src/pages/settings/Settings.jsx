@@ -29,7 +29,7 @@ export default function Settings() {
             data.append("file", file);
             updatedUser.profilePic = filename;
             try {
-                await axiosInstance.post(`upload`, data);
+                await axiosInstance.post(`api/upload`, data);
             } catch (err) {
             }
         }
