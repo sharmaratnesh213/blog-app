@@ -2,13 +2,13 @@ import React, { useContext, useEffect, useState } from 'react'
 import "./singlePost.css"
 import { Link, useLocation } from 'react-router-dom'
 import { Context } from '../../context/Context';
-import { axiosInstance } from '../../constants';
+import { BASE_URL, axiosInstance } from '../../constants';
 
 export default function SinglePost() {
     const location = useLocation();
     const path = location.pathname.split("/")[2];
     const [post, setPost] = useState({});
-    const PF = `https://4e3a-4-240-87-123.ngrok-free.app/images/`;
+    const PF = `${BASE_URL}/images/`;
     const { user } = useContext(Context);
     const [title, setTitle] = useState("");
     const [desc, setDesc] = useState("");
