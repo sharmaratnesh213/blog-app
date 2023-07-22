@@ -15,7 +15,7 @@ export default function Home() {
         const fetchPosts = async () => {
             const options = {
                 headers: {
-                    "Content-Type": "application/json"
+                    "ngrok-skip-browser-warning": "5000"
                 }
             };
             const res = await axiosInstance.get(`/posts` + search, options);

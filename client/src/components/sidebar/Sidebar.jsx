@@ -10,7 +10,7 @@ export default function Sidebar() {
         const getCats = async () => {
             const options = {
                 headers: {
-                    "Content-Type": "application/json"
+                    "ngrok-skip-browser-warning": "5000"
                 }
             };
             const res = await axiosInstance.get(`/categories`, options);
