@@ -8,12 +8,7 @@ export default function Sidebar() {
 
     useEffect(() => {
         const getCats = async () => {
-            const options = {
-                headers: {
-                    "ngrok-skip-browser-warning": "5000"
-                }
-            };
-            const res = await axiosInstance.get(`/categories`, options);
+            const res = await axiosInstance.get(`api/categories`);
             setCats(res.data);
             console.log(cats);
         };

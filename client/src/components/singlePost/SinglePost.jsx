@@ -21,7 +21,7 @@ export default function SinglePost() {
                     "Content-Type": "application/json"
                 }
             };
-            const res = await axiosInstance.get(`posts/${path}`, options);
+            const res = await axiosInstance.get(`api/posts/${path}`, options);
             setPost(res.data);
             setTitle(res.data.title);
             setDesc(res.data.desc);
@@ -31,7 +31,7 @@ export default function SinglePost() {
 
     const handleDelete = async () => {
         try {
-            await axiosInstance.delete(`posts/${post._id}`, {
+            await axiosInstance.delete(`api/posts/${post._id}`, {
                 data: { username: user.username },
             });
             window.location.replace("/");
@@ -42,7 +42,7 @@ export default function SinglePost() {
 
     const handleUpdate = async () => {
         try {
-            await axiosInstance.put(`posts/${post._id}`, {
+            await axiosInstance.put(`api/posts/${post._id}`, {
                 username: user.username,
                 title,
                 desc,

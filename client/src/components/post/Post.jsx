@@ -1,9 +1,10 @@
 import React from 'react'
 import "./post.css"
 import { Link } from "react-router-dom"
+import { BASE_URL } from '../../constants';
 
 export default function Post({ post }) {
-    const PF = `https://4e3a-4-240-87-123.ngrok-free.app/images/`;
+    const PF = `${BASE_URL}/images/`;
     return (
         <div className='post'>
             {post.photo && (

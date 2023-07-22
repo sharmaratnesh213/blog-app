@@ -13,12 +13,7 @@ export default function Home() {
 
     useEffect(() => {
         const fetchPosts = async () => {
-            const options = {
-                headers: {
-                    "ngrok-skip-browser-warning": "5000"
-                }
-            };
-            const res = await axiosInstance.get(`/posts` + search, options);
+            const res = await axiosInstance.get(`api/posts` + search);
             setPosts(res.data);
         };
         fetchPosts();
